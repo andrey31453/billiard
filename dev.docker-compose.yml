@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  s_host:
+    build:
+      context: ./
+      dockerfile: dev.dockerfile
+      args:
+        workdir: /files/host
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/files/host
+      - v_host:/files/host/node_modules
+    restart: always
+
+volumes:
+  v_host:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: .//node_modules
