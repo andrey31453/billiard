@@ -1,23 +1,23 @@
 version: '3'
 
 services:
-  s_host:
+  s_billiard:
     build:
       context: ./
       dockerfile: dev.dockerfile
       args:
-        workdir: /files/host
+        workdir: /files/billiard
     ports:
       - 8000:8000
     volumes:
-      - ./:/files/host
-      - v_host:/files/host/node_modules
+      - ./:/files/billiard
+      - v_billiard:/files/billiard/node_modules
     restart: always
 
 volumes:
-  v_host:
+  v_billiard:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: .//node_modules
+      device: ./node_modules

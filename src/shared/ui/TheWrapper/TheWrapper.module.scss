@@ -1,0 +1,14 @@
+@use '~styles/utils';
+@use '~styles/vars';
+
+.wrapper {
+  width: 100%;
+  @include utils.font();
+}
+
+.main {
+  min-height: 100dvh;
+
+  background-color: vars.$bc;
+  color: vars.$fc;
+}

@@ -7,7 +7,7 @@ const src = __dirname + '/src/'
 
 module.exports = ({ dev }) => ({
   entry: {
-    index: src + 'index',
+    index: src + 'main',
   },
 
   devServer: dev
@@ -39,6 +39,9 @@ module.exports = ({ dev }) => ({
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
     plugins: [new tsconfig_paths()],
+    alias: {
+      '~styles': src + 'shared/styles',
+    },
   },
 
   module: {
